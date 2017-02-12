@@ -7,6 +7,7 @@ use App\Modules\Kagi\Http\Repositories\UserRepository;
 use App\Modules\Kagi\Http\Repositories\RoleRepository;
 
 use Illuminate\Http\Request;
+use App\Modules\Core\Http\Controllers\KagiController;
 use App\Modules\Kagi\Http\Requests\UserCreateRequest;
 use App\Modules\Kagi\Http\Requests\UserUpdateRequest;
 use App\Modules\Kagi\Http\Requests\DeleteRequest;

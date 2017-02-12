@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Kagi\Http\Controllers;
+namespace App\Modules\Core\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
