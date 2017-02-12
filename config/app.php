@@ -165,6 +165,10 @@ return [
         Vinkla\Translator\TranslatorServiceProvider::class,
         yajra\Datatables\DatatablesServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+
+        //Menu\MenuServiceProvider::class,
+
+
     ],
 
     /*
@@ -230,6 +234,9 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Datatables' => yajra\Datatables\Datatables::class,
+
+        //'Menu' => 'Menu\Menu',
+
 
     ],
 

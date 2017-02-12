@@ -29,7 +29,9 @@
     "erusev/parsedown": "^1.6",
     "doctrine/dbal": "^2.5",
     "kriswallsmith/assetic": "^1.4",
-    "predis/predis": "^1.1"
+    "predis/predis": "^1.1",
+    "filp/whoops": "~1.0",
+    "vespakoen/menu": "^3.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

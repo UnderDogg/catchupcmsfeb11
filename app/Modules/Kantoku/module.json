@@ -1,0 +1,8 @@
+{
+	"name": "Kantoku",
+	"slug": "kantoku",
+	"version": "1.0",
+	"description": "Module Manager",
+	"order": 2,
+	"enabled": true
+}

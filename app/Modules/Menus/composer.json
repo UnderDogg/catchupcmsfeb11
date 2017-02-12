@@ -1,0 +1,14 @@
+{
+	"name": "rakko/menus",
+	"description": "Menu Functionality for Rakko",
+	"keywords": ["Menus", "CMS", "Rakko"],
+	"require": {
+		"laravel/framework": "5.1.*",
+		"caffeinated/menus": "~2.0"
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}

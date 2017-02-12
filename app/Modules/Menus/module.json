@@ -1,0 +1,8 @@
+{
+	"name": "Menus",
+	"slug": "menus",
+	"version": "1.0",
+	"description": "Rakko Menu Manager.",
+	"order": 4,
+	"enabled": true
+}

@@ -73,6 +73,7 @@ class Tenant
 //dd(Config::get('laravel-multi-tenant.default_tenant_columns'));
 
         $site_info = Site::where('slug', $domain_slug)->first();
+
 //		Cache::forget('sites');
 // 		$site_info = Cache::rememberForever('sites', function() {
 // 		return Site::where('slug', $domain_slug)->first();
@@ -90,9 +91,9 @@ class Tenant
 //		Session::set('siteId', $site_info->id);
 //dd(session('siteId', $site_info->id));
 //		session('siteId', $site_info->id);
-        Cache::forget('siteId');
+        //Cache::forget('siteId');
 //		Session::put('siteId', $site_info->id);
-        Cache::forever('siteId', $site_info->id);
+        //Cache::forever('siteId', $site_info->id);
 //dd(session()->get('siteId'));
 
         return $site_info;
@@ -105,7 +106,9 @@ class Tenant
         $theme_slug = Cache::get($site_id . '_' . 'theme_slug', null);
 //dd($theme_slug);
         if ($theme_slug == null) {
-            $theme_slug = $site_info->theme_slug;
+            $theme_slug = 'default';
+            //
+            ///$theme_slug = $site_info->theme_slug;
             $theme_slug = $site_id . '_' . $theme_slug;
 //dd($theme_slug);
             Cache::forever($site_id . '_' . 'theme_slug', $theme_slug);

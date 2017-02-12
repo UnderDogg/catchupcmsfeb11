@@ -1,0 +1,17 @@
+{
+	"name": "rakko/core",
+	"description": "Core Functionality for Rakko",
+	"keywords": ["Functions", "CMS", "Rakko"],
+	"require": {
+		"laravel/framework": "5.1.*",
+		"anlutro/l4-settings": "^0.4.0",
+		"aura-is-here/laravel-multi-tenant": "dev-master",
+		"caffeinated/seo": "~2.0",
+		"shvetsgroup/laravel-email-database-log": "*"
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
