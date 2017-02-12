@@ -36,7 +36,7 @@ abstract class BaseCacheDecorator implements BaseRepository
     }
 
     /**
-     * @param  int   $id
+     * @param  int $id
      * @return mixed
      */
     public function find($id)
@@ -139,7 +139,7 @@ abstract class BaseCacheDecorator implements BaseRepository
 
     /**
      * Find a resource by an array of attributes
-     * @param  array  $attributes
+     * @param  array $attributes
      * @return object
      */
     public function findByAttributes(array $attributes)

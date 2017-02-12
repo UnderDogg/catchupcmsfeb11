@@ -5,9 +5,10 @@ namespace App\Modules\Kagi\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class AssignedRoles extends Model {
+class AssignedRoles extends Model
+{
 
-	protected $table = 'assigned_roles';
+    protected $table = 'assigned_roles';
 
 // Presenter ---------------------------------------------------------------
 //	protected $presenter = 'App\Modules\Kagi\Http\Presenters\Kagi';
@@ -15,7 +16,7 @@ class AssignedRoles extends Model {
 // Translation Model -------------------------------------------------------
 // Hidden ------------------------------------------------------------------
 // Fillable ----------------------------------------------------------------
-	protected $fillable = [];
+    protected $fillable = [];
 
 // Translated Columns ------------------------------------------------------
 // Relationships -----------------------------------------------------------

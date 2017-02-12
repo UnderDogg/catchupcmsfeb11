@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 
 
-class Permission extends Model {
+class Permission extends Model
+{
 
-	use PresentableTrait;
+    use PresentableTrait;
 
-	protected $table = 'permissions';
+    protected $table = 'permissions';
 
 // Presenter ---------------------------------------------------------------
-	protected $presenter = 'App\Modules\Kagi\Http\Presenters\Kagi';
+    protected $presenter = 'App\Modules\Kagi\Http\Presenters\Kagi';
 
 // Translation Model -------------------------------------------------------
 
@@ -22,7 +23,7 @@ class Permission extends Model {
 //	protected $hidden = ['_token'];
 
 // Fillable ----------------------------------------------------------------
-	protected $fillable = ['name', 'slug', 'description'];
+    protected $fillable = ['name', 'slug', 'description'];
 
 // Translated Columns ------------------------------------------------------
 // Relationships -----------------------------------------------------------

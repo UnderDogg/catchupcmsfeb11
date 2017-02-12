@@ -21,10 +21,10 @@ Route::model('role', 'Role');
 
 // Controllers
 
-Route::group(['prefix' => 'kagi'], function() {
-	Route::get('welcome', [
-		'uses'=>'KagiController@welcome'
-	]);
+Route::group(['prefix' => 'kagi'], function () {
+    Route::get('welcome', [
+        'uses' => 'KagiController@welcome'
+    ]);
 });
 
 Route::get('login', 'Social\SocialAuthController@getLogin');
@@ -35,20 +35,20 @@ Route::get('login', 'Social\SocialAuthController@getLogin');
 | /auth/
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'auth'], function() {
+Route::group(['prefix' => 'auth'], function () {
 
 // Authentication
-	Route::get('login', 'Auth\AuthController@getLogin');
-	Route::post('login', 'Auth\AuthController@postLogin');
-	Route::get('logout', 'Auth\AuthController@getLogout');
+    Route::get('login', 'Auth\AuthController@getLogin');
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Confirmation
-	Route::get('confirm/{code}', 'Auth\AuthController@getConfirm');
-	Route::post('confirm/{code}', 'Auth\AuthController@postConfirm');
+    Route::get('confirm/{code}', 'Auth\AuthController@getConfirm');
+    Route::post('confirm/{code}', 'Auth\AuthController@postConfirm');
 
 // Registration
-	Route::get('register', 'Auth\AuthController@getRegister');
-	Route::post('register', 'Auth\AuthController@postRegister');
+    Route::get('register', 'Auth\AuthController@getRegister');
+    Route::post('register', 'Auth\AuthController@postRegister');
 
 });
 
@@ -57,23 +57,23 @@ Route::group(['prefix' => 'auth'], function() {
 | /password/
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'password'], function() {
+Route::group(['prefix' => 'password'], function () {
 
 // Password reset link request routes...
-	Route::get('email', 'Auth\PasswordController@getEmail');
-	Route::post('email', 'Auth\PasswordController@postEmail');
+    Route::get('email', 'Auth\PasswordController@getEmail');
+    Route::post('email', 'Auth\PasswordController@postEmail');
 
 // Password reset routes...
-	Route::get('reset/{token}', 'Auth\PasswordController@getReset');
-	Route::post('reset', 'Auth\PasswordController@postReset');
+    Route::get('reset/{token}', 'Auth\PasswordController@getReset');
+    Route::post('reset', 'Auth\PasswordController@postReset');
 
 // Password reset link request
-	Route::get('email', 'Auth\PasswordController@getEmail');
-	Route::post('email', 'Auth\PasswordController@postEmail');
+    Route::get('email', 'Auth\PasswordController@getEmail');
+    Route::post('email', 'Auth\PasswordController@postEmail');
 
 // Password reset
-	Route::get('reset/{token}', 'Auth\PasswordController@getReset');
-	Route::post('reset', 'Auth\PasswordController@postReset');
+    Route::get('reset/{token}', 'Auth\PasswordController@getReset');
+    Route::post('reset', 'Auth\PasswordController@postReset');
 
 });
 
@@ -100,32 +100,32 @@ Route::controllers([
 | Admin
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
 
 // Resources
 
 # Users
-	Route::resource('users', 'UsersController');
-	Route::get('getDelete/{id}', 'UsersController@getDelete');
+    Route::resource('users', 'UsersController');
+    Route::get('getDelete/{id}', 'UsersController@getDelete');
 # Roles
-	Route::resource('roles', 'RolesController');
+    Route::resource('roles', 'RolesController');
 # Permissions
-	Route::resource('permissions', 'PermissionsController');
+    Route::resource('permissions', 'PermissionsController');
 
 // Controllers
 // API DATA
-	Route::get('api/users', array(
-	//	'as'=>'api.users',
-		'uses'=>'UsersController@data'
-		));
-	Route::get('api/roles', array(
-	//	'as'=>'api.roles',
-		'uses'=>'RolesController@data'
-		));
-	Route::get('api/permissions', array(
-	//	'as'=>'api.permissions',
-		'uses'=>'PermissionsController@data'
-		));
+    Route::get('api/users', array(
+        //	'as'=>'api.users',
+        'uses' => 'UsersController@data'
+    ));
+    Route::get('api/roles', array(
+        //	'as'=>'api.roles',
+        'uses' => 'RolesController@data'
+    ));
+    Route::get('api/permissions', array(
+        //	'as'=>'api.permissions',
+        'uses' => 'PermissionsController@data'
+    ));
 
 });
 // --------------------------------------------------------------------------

@@ -9,19 +9,19 @@ class KantokuDatabaseSeeder extends Seeder
 {
 
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		Model::unguard();
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Model::unguard();
 
-		$this->call('App\Modules\Kantoku\Database\Seeds\ModuleLinksSeeder');
-		$this->call('App\Modules\Kantoku\Database\Seeds\ModulePermissionsSeeder');
+        $this->call('App\Modules\Kantoku\Database\Seeds\ModuleLinksSeeder');
+        $this->call('App\Modules\Kantoku\Database\Seeds\ModulePermissionsSeeder');
 
-	}
+    }
 
 
 }

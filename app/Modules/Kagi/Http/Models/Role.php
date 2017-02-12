@@ -8,22 +8,23 @@ use Caffeinated\Shinobi\Traits\ShinobiTrait;
 use Laracasts\Presenter\PresentableTrait;
 
 
-class Role extends Model {
+class Role extends Model
+{
 
-	use PresentableTrait;
-	use ShinobiTrait;
+    use PresentableTrait;
+    use ShinobiTrait;
 
-	protected $table = 'roles';
+    protected $table = 'roles';
 
 // Presenter ---------------------------------------------------------------
-	protected $presenter = 'App\Modules\Kagi\Http\Presenters\Kagi';
+    protected $presenter = 'App\Modules\Kagi\Http\Presenters\Kagi';
 
 // Translation Model -------------------------------------------------------
 // Hidden ------------------------------------------------------------------
 //	protected $hidden = ['password', 'remember_token'];
 
 // Fillable ----------------------------------------------------------------
-	protected $fillable = ['name', 'slug', 'description'];
+    protected $fillable = ['name', 'slug', 'description'];
 
 // Translated Columns ------------------------------------------------------
 // Relationships -----------------------------------------------------------

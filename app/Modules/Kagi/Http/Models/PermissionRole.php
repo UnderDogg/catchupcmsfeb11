@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 //use Laracasts\Presenter\PresentableTrait;
 
 
-class PermissionRole extends Model {
+class PermissionRole extends Model
+{
 
 //	use PresentableTrait;
 
-	protected $table = 'permission_role';
+    protected $table = 'permission_role';
 
 // Presenter ---------------------------------------------------------------
 //	protected $presenter = 'App\Modules\Kagi\Http\Presenters\Kagi';
@@ -19,7 +20,7 @@ class PermissionRole extends Model {
 // Translation Model -------------------------------------------------------
 // Hidden ------------------------------------------------------------------
 // Fillable ----------------------------------------------------------------
-	protected $fillable = [];
+    protected $fillable = [];
 
 // Translated Columns ------------------------------------------------------
 // Relationships -----------------------------------------------------------

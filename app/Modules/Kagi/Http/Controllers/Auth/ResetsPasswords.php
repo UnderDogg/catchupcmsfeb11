@@ -16,136 +16,136 @@ use Theme;
 trait ResetsPasswords
 {
 
-	/**
-	 * Display the form to request a password reset link.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function getEmail()
-	{
-		return Theme::View('modules.kagi.auth.password');
-	}
+    /**
+     * Display the form to request a password reset link.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getEmail()
+    {
+        return Theme::View('modules.kagi.auth.password');
+    }
 
 
-	/**
-	 * Send a reset link to the given user.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
-	public function postEmail(Request $request)
-	{
+    /**
+     * Send a reset link to the given user.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postEmail(Request $request)
+    {
 //dd($request);
 
-		$this->validate($request, ['email' => 'required|email']);
+        $this->validate($request, ['email' => 'required|email']);
 
-		$response = Password::sendResetLink($request->only('email'), function (Message $message) {
-			$message->subject($this->getEmailSubject());
-		});
+        $response = Password::sendResetLink($request->only('email'), function (Message $message) {
+            $message->subject($this->getEmailSubject());
+        });
 //dd($response);
 
-		switch ($response) {
-			case Password::RESET_LINK_SENT:
-				Flash::success( trans('kotoba::auth.success.password_reset') );
-				return redirect()->back()->with('status', trans($response));
+        switch ($response) {
+            case Password::RESET_LINK_SENT:
+                Flash::success(trans('kotoba::auth.success.password_reset'));
+                return redirect()->back()->with('status', trans($response));
 
-			case Password::INVALID_USER:
-				Flash::error( trans('kotoba::auth.error.reset_password') );
-				return redirect()->back()->withErrors(['email' => trans($response)]);
-		}
-	}
-
-
-	/**
-	 * Get the e-mail subject line to be used for the reset link email.
-	 *
-	 * @return string
-	 */
-	protected function getEmailSubject()
-	{
-		return isset($this->subject) ? $this->subject : trans('kotoba::email.password_link');
-	}
+            case Password::INVALID_USER:
+                Flash::error(trans('kotoba::auth.error.reset_password'));
+                return redirect()->back()->withErrors(['email' => trans($response)]);
+        }
+    }
 
 
-	/**
-	 * Display the password reset view for the given token.
-	 *
-	 * @param  string  $token
-	 * @return \Illuminate\Http\Response
-	 */
-	public function getReset($token = null)
-	{
-		if (is_null($token)) {
-			throw new NotFoundHttpException;
-		}
-
-		return Theme::View('modules.kagi.auth.reset')->with('token', $token);
-	}
+    /**
+     * Get the e-mail subject line to be used for the reset link email.
+     *
+     * @return string
+     */
+    protected function getEmailSubject()
+    {
+        return isset($this->subject) ? $this->subject : trans('kotoba::email.password_link');
+    }
 
 
-	/**
-	 * Reset the given user's password.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
-	public function postReset(Request $request)
-	{
-		$this->validate($request, [
-			'token' => 'required',
-			'email' => 'required|email',
-			'password' => 'required|confirmed',
-		]);
+    /**
+     * Display the password reset view for the given token.
+     *
+     * @param  string $token
+     * @return \Illuminate\Http\Response
+     */
+    public function getReset($token = null)
+    {
+        if (is_null($token)) {
+            throw new NotFoundHttpException;
+        }
 
-		$credentials = $request->only(
-			'email', 'password', 'password_confirmation', 'token'
-		);
-
-		$response = Password::reset($credentials, function ($user, $password) {
-			$this->resetPassword($user, $password);
-		});
-
-		switch ($response) {
-			case Password::PASSWORD_RESET:
-				return redirect($this->redirectPath());
-
-			default:
-				return redirect()->back()
-							->withInput($request->only('email'))
-							->withErrors(['email' => trans($response)]);
-		}
-	}
+        return Theme::View('modules.kagi.auth.reset')->with('token', $token);
+    }
 
 
-	/**
-	 * Reset the given user's password.
-	 *
-	 * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
-	 * @param  string  $password
-	 * @return void
-	 */
-	protected function resetPassword($user, $password)
-	{
-		$user->password = Hash::make($password);
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postReset(Request $request)
+    {
+        $this->validate($request, [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed',
+        ]);
 
-		$user->save();
+        $credentials = $request->only(
+            'email', 'password', 'password_confirmation', 'token'
+        );
 
-		Auth::login($user);
-	}
+        $response = Password::reset($credentials, function ($user, $password) {
+            $this->resetPassword($user, $password);
+        });
+
+        switch ($response) {
+            case Password::PASSWORD_RESET:
+                return redirect($this->redirectPath());
+
+            default:
+                return redirect()->back()
+                    ->withInput($request->only('email'))
+                    ->withErrors(['email' => trans($response)]);
+        }
+    }
 
 
-	/**
-	 * Get the post register / login redirect path.
-	 *
-	 * @return string
-	 */
-	public function redirectPath()
-	{
-		if (property_exists($this, 'redirectPath')) {
-			return $this->redirectPath;
-		}
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword $user
+     * @param  string $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $user->password = Hash::make($password);
 
-		return property_exists($this, 'redirectTo') ? $this->redirectTo : Config::get('login_return_path', '/auth/login');
-	}
+        $user->save();
+
+        Auth::login($user);
+    }
+
+
+    /**
+     * Get the post register / login redirect path.
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+        if (property_exists($this, 'redirectPath')) {
+            return $this->redirectPath;
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : Config::get('login_return_path', '/auth/login');
+    }
 
 }

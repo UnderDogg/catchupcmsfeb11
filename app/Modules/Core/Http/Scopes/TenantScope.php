@@ -16,15 +16,15 @@ class TenantScope implements ScopeInterface
 {
 
 
-	/**
-	 * Apply the scope to a given Eloquent query builder.
-	 *
-	 * @param  \Illuminate\Database\Eloquent\Builder  $builder
-	 * @param  \Illuminate\Database\Eloquent\Model  $model
-	 * @return void
-	 */
-	public function apply(Builder $builder, Model $model)
-	{
+    /**
+     * Apply the scope to a given Eloquent query builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $builder
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @return void
+     */
+    public function apply(Builder $builder, Model $model)
+    {
 
 //dd(Auth::user());
 //dd(Session::get('siteId'));
@@ -32,58 +32,54 @@ class TenantScope implements ScopeInterface
 //dd(session()->get('siteId'));
 
 
-		if ( Auth::user() != null) {
-			if ( Auth::user()->can('manage_newsdesk') || Auth::user()->can('manage_himawari') ) {
-			}
-		} else {
+        if (Auth::user() != null) {
+            if (Auth::user()->can('manage_newsdesk') || Auth::user()->can('manage_himawari')) {
+            }
+        } else {
 
-			if (Session::has('siteId'))
-			{
-				$siteId = session('siteId');
-				$builder->whereHas('sites', function($query) use($siteId)
-				{
-					$query->where('sites.id', $siteId);
-				});
-			} else {
+            if (Session::has('siteId')) {
+                $siteId = session('siteId');
+                $builder->whereHas('sites', function ($query) use ($siteId) {
+                    $query->where('sites.id', $siteId);
+                });
+            } else {
 //dd(Cache::get('siteId'));
 //dd(Session::has('siteId'));
-				$siteId = Cache::get('siteId');
-				$builder->whereHas('sites', function($query) use($siteId)
-				{
-					$query->where('sites.id', $siteId);
-				});
-			}
+                $siteId = Cache::get('siteId');
+                $builder->whereHas('sites', function ($query) use ($siteId) {
+                    $query->where('sites.id', $siteId);
+                });
+            }
 
-		}
-
+        }
 
 
-/*
-			if (Session::has('siteId'))
-			{
-				$siteId = session('siteId');
-				$builder->whereHas('sites', function($query) use($siteId)
-				{
-					$query->where('sites.id', $siteId);
-				});
-			}
-*/
+        /*
+                    if (Session::has('siteId'))
+                    {
+                        $siteId = session('siteId');
+                        $builder->whereHas('sites', function($query) use($siteId)
+                        {
+                            $query->where('sites.id', $siteId);
+                        });
+                    }
+        */
 
 
-	}
+    }
 
 
-	/**
-	 * Remove the scope from the given Eloquent query builder.
-	 *
-	 * @param  \Illuminate\Database\Eloquent\Builder  $builder
-	 * @param  \Illuminate\Database\Eloquent\Model  $model
-	 * @return void
-	 */
-	public function remove(Builder $builder, Model $model)
-	{
-		dd('remove called');
-	}
+    /**
+     * Remove the scope from the given Eloquent query builder.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $builder
+     * @param  \Illuminate\Database\Eloquent\Model $model
+     * @return void
+     */
+    public function remove(Builder $builder, Model $model)
+    {
+        dd('remove called');
+    }
 
 
 }

@@ -24,7 +24,6 @@ class Handler extends ExceptionHandler
     ];
 
 
-
     /**
      * Report or log an exception.
      *

@@ -2,23 +2,28 @@
 
 namespace App\Modules\Kagi\Http\Models;
 
-use Illuminate\Auth\Authenticatable;
+//use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
 use Laracasts\Presenter\PresentableTrait;
 
+// extends Authenticatable
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+abstract class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
 
-    use Authenticatable;
+    //use Authenticatable;
     use CanResetPassword;
     use PresentableTrait;
     use ShinobiTrait;
+    use Notifiable;
 
     protected $table = 'users';
 

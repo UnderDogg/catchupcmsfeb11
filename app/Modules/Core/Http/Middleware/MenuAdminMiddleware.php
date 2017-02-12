@@ -36,7 +36,7 @@ class MenuAdminMiddleware
     {
 
 
-        LMenu::make('navAdmin', function (Builder $menu) {
+        CMenu::make('navAdmin', function (Builder $menu) {
 //			$activeTheme = Theme::getActive();
 //Cache::forget('menu_admin');
 

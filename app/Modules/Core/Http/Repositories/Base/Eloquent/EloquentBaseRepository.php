@@ -26,7 +26,7 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * @param  int    $id
+     * @param  int $id
      * @return object
      */
     public function find($id)
@@ -51,7 +51,7 @@ abstract class EloquentBaseRepository implements BaseRepository
     }
 
     /**
-     * @param  mixed  $data
+     * @param  mixed $data
      * @return object
      */
     public function create($data)
@@ -61,7 +61,7 @@ abstract class EloquentBaseRepository implements BaseRepository
 
     /**
      * @param $model
-     * @param  array  $data
+     * @param  array $data
      * @return object
      */
     public function update($model, $data)
@@ -83,7 +83,7 @@ abstract class EloquentBaseRepository implements BaseRepository
     /**
      * Return all resources in the given language
      *
-     * @param  string                                   $lang
+     * @param  string $lang
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allTranslatedIn($lang)
@@ -112,7 +112,7 @@ abstract class EloquentBaseRepository implements BaseRepository
 
     /**
      * Find a resource by an array of attributes
-     * @param  array  $attributes
+     * @param  array $attributes
      * @return object
      */
     public function findByAttributes(array $attributes)

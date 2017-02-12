@@ -10,14 +10,14 @@ class KagiDatabaseSeeder extends Seeder
 {
 
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		Model::unguard();
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Model::unguard();
 
 // 		$this->call('App\Modules\Kagi\Database\Seeds\ModuleLinksSeeder');
 // 		$this->call('App\Modules\Kagi\Database\Seeds\ModulePermissionsSeeder');
@@ -26,9 +26,9 @@ class KagiDatabaseSeeder extends Seeder
 // 		$this->call('App\Modules\Kagi\Database\Seeds\UsersMainSeeder'); // admin only
 // 		$this->call('App\Modules\Kagi\Database\Seeds\UsersSeeder'); // csv
 
-		$this->call('App\Modules\Kagi\Database\Seeds\UsersExcel'); // csv
+        //$this->call('App\Modules\Kagi\Database\Seeds\UsersExcel'); // csv
 
-	}
+    }
 
 
 }

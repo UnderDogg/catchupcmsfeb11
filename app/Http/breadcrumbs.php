@@ -2,23 +2,20 @@
 
 
 // Home
-Breadcrumbs::register('home', function($breadcrumbs)
-{
-	$breadcrumbs->push('Home', url('/'));
+Breadcrumbs::register('home', function ($breadcrumbs) {
+    $breadcrumbs->push('Home', url('/'));
 });
 
 // Home > About
-Breadcrumbs::register('about', function($breadcrumbs)
-{
-	$breadcrumbs->parent('home');
-	$breadcrumbs->push('About', url('admin'));
+Breadcrumbs::register('about', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('About', url('admin'));
 });
 
 // Home > About
-Breadcrumbs::register('admin', function($breadcrumbs)
-{
-	$breadcrumbs->parent('about');
-	$breadcrumbs->push('admin', url('admin'));
+Breadcrumbs::register('admin', function ($breadcrumbs) {
+    $breadcrumbs->parent('about');
+    $breadcrumbs->push('admin', url('admin'));
 });
 
 

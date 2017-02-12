@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Contracts\Routing\Middleware;
+//use Illuminate\Contracts\Routing\Middleware;
 
 use App;
 use Cache;
@@ -16,7 +16,7 @@ use Lang;
 use Session;
 
 
-class SetLanguage implements Middleware
+class SetLanguage
 {
 
 

@@ -3,7 +3,7 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{ Config::get('core.title') }} :: @parent
+    {{ Config::get('core.title') }} :: @parent
 @stop
 
 @section('styles')
@@ -18,11 +18,11 @@
 {{-- Content --}}
 @section('content')
 
-	<a href="/">
-		<img src="/assets/images/rakko.jpg" class="img-responsive">
-	</a>
-	<div class="title">
-		Welcome to the Rakko Platform System
-	</div>
+    <a href="/">
+        <img src="/assets/images/rakko.jpg" class="img-responsive">
+    </a>
+    <div class="title">
+        Welcome to the Rakko Platform System
+    </div>
 
 @stop

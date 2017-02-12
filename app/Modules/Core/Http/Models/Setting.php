@@ -5,38 +5,39 @@ namespace App\Modules\Core\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 
-class Setting extends Model {
+class Setting extends Model
+{
 
-	use PresentableTrait;
+    use PresentableTrait;
 
-/**
- * The database table used by the model.
- *
- * @var string
- */
-	protected $table = 'settings';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'settings';
 
 // Presenter ---------------------------------------------------------------
-	protected $presenter = 'App\Modules\Core\Http\Presenters\Core';
+    protected $presenter = 'App\Modules\Core\Http\Presenters\Core';
 
 // Translation Model -------------------------------------------------------
 // Hidden ------------------------------------------------------------------
-/**
- * The attributes excluded from the model's JSON form.
- *
- * @var array
- */
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
 //	protected $hidden = ['password', 'remember_token'];
 
 // Fillable ----------------------------------------------------------------
-/*
-			$table->string('name',100)->index();
-			$table->string('description')->nullable();
-*/
-	protected $fillable = [
-		'key',
-		'value'
-		];
+    /*
+                $table->string('name',100)->index();
+                $table->string('description')->nullable();
+    */
+    protected $fillable = [
+        'key',
+        'value'
+    ];
 
 // Relationships -----------------------------------------------------------
 

@@ -3,7 +3,7 @@
 namespace App\Modules\Profiles\Http\Middleware;
 
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Contracts\Routing\Middleware;
+//use Illuminate\Contracts\Routing\Middleware;
 
 use Auth;
 use Closure;
@@ -11,7 +11,7 @@ use Config;
 use Flash;
 
 
-class AuthenticateProfiles implements Middleware
+class AuthenticateProfiles
 {
 
 

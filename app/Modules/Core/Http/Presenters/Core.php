@@ -8,58 +8,59 @@ use Config;
 use DB;
 use Session;
 
-class Core extends Presenter {
+class Core extends Presenter
+{
 
 
-	/**
-	 * Present the name
-	 *
-	 * @return string
-	 */
-	public function name()
-	{
-		return ucwords($this->entity->name);
-	}
+    /**
+     * Present the name
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return ucwords($this->entity->name);
+    }
 
 
-	public function status($status)
-	{
+    public function status($status)
+    {
 //dd($status);
 
-		$return = trans('kotoba::general.enabled');
-		if ( $status == 0 ) {
-			$return = trans('kotoba::general.disabled');
-		}
+        $return = trans('kotoba::general.enabled');
+        if ($status == 0) {
+            $return = trans('kotoba::general.disabled');
+        }
 
-		return $return;
-	}
+        return $return;
+    }
 
 
-	public function active($active)
-	{
+    public function active($active)
+    {
 //dd($active);
 
-		$return = trans('kotoba::general.yes');
-		if ( $active == 0 ) {
-			$return = trans('kotoba::general.no');
-		}
+        $return = trans('kotoba::general.yes');
+        if ($active == 0) {
+            $return = trans('kotoba::general.no');
+        }
 
-		return $return;
-	}
+        return $return;
+    }
 
 
-	public function checked($value)
-	{
+    public function checked($value)
+    {
 //dd($value);
 
-		$return = '';
+        $return = '';
 
-		if ( $value == 1 ) {
-			$return = "checked";
-		}
+        if ($value == 1) {
+            $return = "checked";
+        }
 
-		return $return;
-	}
+        return $return;
+    }
 
 
 }
