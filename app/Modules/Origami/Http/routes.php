@@ -12,10 +12,10 @@
 // Controllers
 
 
-Route::group(['prefix' => 'origami'], function() {
-	Route::get('welcome', [
-		'uses'=>'OrigamiController@welcome'
-	]);
+Route::group(['prefix' => 'origami'], function () {
+    Route::get('welcome', [
+        'uses' => 'OrigamiController@welcome'
+    ]);
 });
 
 
@@ -27,23 +27,23 @@ Route::group(['prefix' => 'origami'], function() {
 | Admin
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
 
 // Resources
 // Controllers
 
-	Route::get('themes/', array(
+    Route::get('themes/', array(
 //		'as'=>'themes.edit',
-		'uses'=>'ThemesController@index'
-		));
-	Route::get('themes/{slug}', array(
+        'uses' => 'ThemesController@index'
+    ));
+    Route::get('themes/{slug}', array(
 //		'as'=>'themes/{slug}',
-		'uses'=>'ThemesController@edit'
-		));
-	Route::post('themes/{slug}', array(
-		'as'=>'themes.update',
-		'uses'=>'ThemesController@update'
-		));
+        'uses' => 'ThemesController@edit'
+    ));
+    Route::post('themes/{slug}', array(
+        'as' => 'themes.update',
+        'uses' => 'ThemesController@update'
+    ));
 
 // API DATA
 

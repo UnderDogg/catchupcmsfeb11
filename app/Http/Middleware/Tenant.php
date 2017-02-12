@@ -48,8 +48,12 @@ class Tenant
 
         $domain_slug = $this->getDomainSlug();
         $site_info = $this->getSiteInfo($domain_slug);
+
+        dd($site_info);
+
+
         $site_id = $site_info->id;
-//dd($site_id);
+
 
         $this->getGoogleAnalytics($site_id);
 
@@ -106,7 +110,7 @@ class Tenant
         $theme_slug = Cache::get($site_id . '_' . 'theme_slug', null);
 //dd($theme_slug);
         if ($theme_slug == null) {
-            $theme_slug = 'default';
+            $theme_slug = 'bootstrap';
             //
             ///$theme_slug = $site_info->theme_slug;
             $theme_slug = $site_id . '_' . $theme_slug;

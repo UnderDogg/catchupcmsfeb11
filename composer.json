@@ -49,9 +49,10 @@
     "doctrine/dbal": "^2.5",
     "kriswallsmith/assetic": "^1.4",
     "predis/predis": "^1.1",
-    "filp/whoops": "~1.0",
+    "filp/whoops": "^2.0",
     "vespakoen/menu": "^3.0",
-    "caffeinated/shinobi": "^3.0"
+    "caffeinated/shinobi": "^3.0",
+    "smarch/watchtower": "@dev"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

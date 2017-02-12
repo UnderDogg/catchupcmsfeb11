@@ -50,15 +50,18 @@ class SetTheme
 
 
         //dd($site_theme_slug);
-
-
+        //the theme is: "1_default"
         Cache::forget('theme');
 //dd($theme);
 //		$theme = Cache::get('theme', null);
         $theme = Cache::get($site_id . '_' . 'theme', $site_theme_slug);
         $theme = explode('_', $theme);
         $theme = $theme[1];
-//dd($theme);
+
+
+        //the theme is: "default"
+        //dd($theme);
+
         Theme::setActive($theme);
         if ($theme == null) {
             dd('die');

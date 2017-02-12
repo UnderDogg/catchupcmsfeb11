@@ -40,8 +40,8 @@ class StatusesController extends CoreController
 // middleware
         parent::__construct();
 // middleware
-        $this->middleware('auth');
-        $this->middleware('admin');
+        //$this->middleware('auth');
+        //$this->middleware('admin');
     }
 
 

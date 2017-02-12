@@ -19,8 +19,8 @@ class KantokuController extends Controller
     public function __construct()
     {
 // middleware
-        $this->middleware('auth');
-        $this->middleware('admin');
+        //$this->middleware('auth');
+        //$this->middleware('admin');
     }
 
 

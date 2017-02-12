@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -156,6 +156,7 @@ return [
         Illuminate3\Kotoba\KotobaServiceProvider::class,
         Caffeinated\Flash\FlashServiceProvider::class,
         Caffeinated\Modules\ModulesServiceProvider::class,
+        Caffeinated\Menus\MenusServiceProvider::class,
         Caffeinated\Plugins\PluginsServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
         Caffeinated\Widgets\WidgetsServiceProvider::class,
@@ -227,6 +228,7 @@ return [
         */
         'Flash' => Caffeinated\Flash\Facades\Flash::class,
         'Module' => Caffeinated\Modules\Facades\Module::class,
+        'Menu' => Caffeinated\Menus\Facades\Menu::class,
         'Plugin' => Caffeinated\Plugins\Facades\Plugin::class,
         'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'Widget' => Caffeinated\Widgets\Facades\Widget::class,
