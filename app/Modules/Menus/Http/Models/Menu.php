@@ -4,14 +4,9 @@ namespace App\Modules\Menus\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use Laracasts\Presenter\PresentableTrait;
-use Vinkla\Translator\Translatable;
-use Vinkla\Translator\Contracts\Translatable as TranslatableContract;
 
-
-class Menu extends Model implements TranslatableContract
+class Menu extends Model
 {
-
-    use Translatable;
     use PresentableTrait;
 
     protected $table = 'menus';

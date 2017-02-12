@@ -9,6 +9,7 @@
   ],
   "require": {
     "laravel/framework": "^5.2",
+    "caffeinated/shinobi": "^3.0",
     "laravel/socialite": "^2.0"
   },
   "config": {

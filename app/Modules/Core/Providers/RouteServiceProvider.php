@@ -3,7 +3,9 @@
 namespace App\Modules\Core\Providers;
 
 use Illuminate\Routing\Router;
-use Caffeinated\Modules\Providers\RouteServiceProvider as ServiceProvider;
+//use Caffeinated\Modules\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -37,11 +39,51 @@ class RouteServiceProvider extends ServiceProvider
      * @param  \Illuminate\Routing\Router $router
      * @return void
      */
-    public function map(Router $router)
+    public function map()
     {
-        $router->group(['namespace' => $this->namespace], function ($router) {
-            require(config('modules.path') . '/Core/Http/routes.php');
-        });
+        $this->mapWebRoutes();
+
+        $this->mapApiRoutes();
+
+
     }
 
+    /**
+     * Define the "web" routes for the module.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::group([
+            'middleware' => 'web',
+            'namespace'  => $this->namespace,
+        ], function ($router) {
+            require(config('modules.path') . '/Core/Routes/web.php');
+        });
+
+
+
+
+    }
+
+    /**
+     * Define the "api" routes for the module.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::group([
+            'middleware' => 'api',
+            'namespace'  => $this->namespace,
+            'prefix'     => 'api',
+        ], function ($router) {
+            require(config('modules.path') . '/Core/Routes/api.php');
+        });
+    }
 }

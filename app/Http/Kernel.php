@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
 //		'module' => \Caffeinated\Modules\Middleware\IdentifyModule::class,
 // auth middleware
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'web' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
 // module middleware

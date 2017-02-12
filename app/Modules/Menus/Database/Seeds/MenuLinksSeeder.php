@@ -49,10 +49,11 @@ class MenuLinksSeeder extends Seeder
 			'locale_id'				=> $locale_id // English ID
 		]);
 
-		if (Schema::hasTable('menulinks'))
+		/*
+    if (Schema::hasTable('menulinks'))
 		{
 			DB::table('menulink_translations')->insert( $ink_name_trans );
-		}
+		}*/
 
 	} // run
 

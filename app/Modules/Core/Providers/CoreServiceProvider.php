@@ -116,12 +116,10 @@ class CoreServiceProvider extends ServiceProvider
      */
     private function registerProviders()
     {
-        $app = $this->app;
-
-        $app->register('App\Modules\Core\Providers\RouteServiceProvider');
+        $this->app->register(RouteServiceProvider::class);
         //$app->register('AuraIsHere\LaravelMultiTenant\LaravelMultiTenantServiceProvider');
         //$app->register('Caffeinated\SEO\SEOServiceProvider');
-//		$app->register('Cviebrock\EloquentSluggable\ServiceProvider');
+        //$app->register('Cviebrock\EloquentSluggable\ServiceProvider');
     }
 
 }

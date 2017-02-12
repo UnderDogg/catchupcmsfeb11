@@ -33,17 +33,16 @@ class DashboardController extends CoreController
      */
     public function index()
     {
-//dd(Auth::user());
-
-        if (Auth::user() != null) {
+        //dd(Auth::user());
+       if (Auth::user() != null) {
             if (Auth::user()->can('manage_admin')) {
 //dd(Auth::user());
                 return Theme::View('modules.core.dashboard');
             }
 //			return Theme::View('modules.core.dashboard');
-        }
+       }
 
-        return Theme::View('modules.core.landing');
+       return Theme::View('modules.core.landing');
 
     }
 

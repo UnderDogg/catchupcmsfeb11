@@ -2,37 +2,36 @@
 
 /*
 |--------------------------------------------------------------------------
-| Core
+| Web Routes
 |--------------------------------------------------------------------------
+|
+| This file is where you may define all of the routes that are handled
+| by your module. Just tell Laravel the URIs it should respond
+| to using a Closure or controller method. Build something great!
+|
 */
 
-// Resources
-// Controllers
+Route::group(['prefix' => ''], function () {
 
-Route::group(['prefix' => 'core'], function () {
+
+    Route::get('/', array(
+        'uses' => 'CoreController@welcome'
+    ));
+
+
+
     Route::get('welcome', [
         'uses' => 'CoreController@welcome'
     ]);
+    Route::get('/sites', array(
+        'uses' => 'SitesPublicController@index'
+    ));
+    Route::get('sites/{id}', array(
+        'uses' => 'SitesPublicController@show'
+    ));
 });
 
-Route::get('/', array(
-    'uses' => 'CoreController@index'
-));
 
-
-Route::get('/sites', array(
-    'uses' => 'SitesPublicController@index'
-));
-Route::get('sites/{id}', array(
-    'uses' => 'SitesPublicController@show'
-));
-
-// API DATA
-
-Route::get('api/sites_public', array(
-    //	'as'=>'api.sites',
-    'uses' => 'SitesPublicController@data'
-));
 
 
 /*
@@ -64,17 +63,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('settings/{key}', array(
         'uses' => 'SettingsController@edit'
     ));
+
     Route::post('settings/{key}', array(
         'uses' => 'SettingsController@update'
     ));
-
-// Controllers
-// API DATA
-
-    Route::get('api/sites', array(
-        //	'as'=>'api.sites',
-        'uses' => 'SitesController@data'
-    ));
-
 });
-// --------------------------------------------------------------------------

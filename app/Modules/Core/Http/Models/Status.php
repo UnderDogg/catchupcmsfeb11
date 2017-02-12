@@ -5,16 +5,9 @@ namespace App\Modules\Core\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 
-use Vinkla\Translator\Translatable;
-use Vinkla\Translator\Contracts\Translatable as TranslatableContract;
-
-class Status extends Model implements TranslatableContract
+class Status extends Model
 {
-
-
     use PresentableTrait;
-    use Translatable;
-
 
     /**
      * The database table used by the model.

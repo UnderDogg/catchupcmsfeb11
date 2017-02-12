@@ -3,7 +3,8 @@
 namespace App\Modules\Core\Http\Middleware;
 
 use Closure;
-use CMenu;
+use Caffeinated\Menus\Facades\Menu as CMenu;
+//use CMenu;
 use Caffeinated\Menus\Builder;
 
 

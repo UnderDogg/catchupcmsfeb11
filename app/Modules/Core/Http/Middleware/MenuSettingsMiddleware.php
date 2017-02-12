@@ -3,7 +3,8 @@
 namespace App\Modules\Core\Http\Middleware;
 
 use Closure;
-use CMenu;
+use Caffeinated\Menus\Facades\Menu as CMenu;
+
 use Caffeinated\Menus\Builder;
 
 
@@ -45,7 +46,7 @@ class MenuSettingsMiddleware
 //dd('menu_admin');
                 $links = Cache::rememberForever('menu_settings', function () {
                     $main_menu_id = LMenu::where('name', '=', 'settings')->pluck('id');
-                    return Menulink::where('menu_id', '=', $main_menu_id)->IsEnabled()->orderBy('position')->get();
+                    return Menulink::where('menu_id', '=', 1)->IsEnabled()->orderBy('position')->get();
                 });
             }
 //dd($links);

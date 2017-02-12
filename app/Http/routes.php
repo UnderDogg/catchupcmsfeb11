@@ -17,6 +17,14 @@ Route::pattern('id', '[0-9]+');
 Route::pattern('lang', '[0-9a-z]+');
 
 
+Route::group(['prefix' => '', 'namespace', 'App\Modules\Kagi\Http\Controllers'], function () {
+
+
+Auth::routes();
+
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Main
@@ -47,7 +55,7 @@ Route::pattern('lang', '[0-9a-z]+');
 | /auth/
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'auth', 'namespace', 'App\Modules\Kagi\Http\Controllers'], function () {
+/*Route::group(['prefix' => 'auth', 'namespace', 'App\Modules\Kagi\Http\Controllers'], function () {
 
 // Authentication
     Route::get('login', 'Auth\AuthController@getLogin');
@@ -66,14 +74,14 @@ Route::group(['prefix' => 'auth', 'namespace', 'App\Modules\Kagi\Http\Controller
 // Social
     Route::get('social/login', 'Social\SocialAuthController@redirectToProvider');
     Route::get('social/login/callback', 'Social\SocialAuthController@handleProviderCallback');
-});
+});*/
 
 /*
 |--------------------------------------------------------------------------
 | /password/
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'password', 'namespace', 'App\Modules\Kagi\Http\Controllers\Auth'], function () {
+/*Route::group(['prefix' => 'password', 'namespace', 'App\Modules\Kagi\Http\Controllers\Auth'], function () {
 
 // Password reset link request routes...
     Route::get('email', 'Auth\PasswordController@getEmail');
@@ -91,9 +99,7 @@ Route::group(['prefix' => 'password', 'namespace', 'App\Modules\Kagi\Http\Contro
     Route::get('reset/{token}', 'Auth\PasswordController@getReset');
     Route::post('reset', 'Auth\PasswordController@postReset');
 
-});
-
-
+});*/
 
 /*
 Route::get('social/login', 'SocialAuthController@login');
@@ -155,26 +161,30 @@ Route::group(['prefix' => 'core', 'namespace', 'App\Modules\Core\Http\Controller
     Route::get('welcome', [
         'uses' => 'CoreController@welcome'
     ]);
-
 });
 
 
 
 
-Route::get('/sites', array(
-    'uses' => 'SitesPublicController@index'
-));
-Route::get('sites/{id}', array(
-    'uses' => 'SitesPublicController@show'
-));
+
+
+Route::group(['prefix' => 'core', 'namespace', 'App\Modules\Core\Http\Controllers'], function () {
+
+    Route::get('/sites', array(
+        'uses' => 'SitesPublicController@index'
+    ));
+    Route::get('sites/{id}', array(
+        'uses' => 'SitesPublicController@show'
+    ));
 
 // API DATA
 
-Route::get('api/sites_public', array(
-    //	'as'=>'api.sites',
-    'uses' => 'SitesPublicController@data'
-));
+    Route::get('api/sites_public', array(
+        //	'as'=>'api.sites',
+        'uses' => 'SitesPublicController@data'
+    ));
 
+});
 
 
 Route::get('/language/{lang}', 'LanguageController@language');
