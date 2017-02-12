@@ -11,15 +11,19 @@ use Flash;
 
 class Handler extends ExceptionHandler
 {
-
     /**
      * A list of the exception types that should not be reported.
      *
      * @var array
      */
     protected $dontReport = [
+        AuthorizationException::class,
         HttpException::class,
+        ModelNotFoundException::class,
+        ValidationException::class,
     ];
+
+
 
     /**
      * Report or log an exception.
@@ -37,19 +41,17 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception $e
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $e)
     {
-        if ($this->isHttpException($e))
-        {
+        if ($this->isHttpException($e)) {
             return $this->renderHttpException($e);
         }
 
-        if (config('app.debug'))
-        {
+        if (config('app.debug')) {
             return $this->renderExceptionWithWhoops($e);
         }
 
@@ -73,10 +75,6 @@ class Handler extends ExceptionHandler
             $e->getHeaders()
         );
     }
-
-
-
-
 
 
 }

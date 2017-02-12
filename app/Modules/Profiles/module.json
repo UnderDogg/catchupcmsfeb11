@@ -1,0 +1,8 @@
+{
+	"name": "Profiles",
+	"slug": "profiles",
+	"version": "1.0",
+	"description": "Profile Management that extends the User management of Kagi for Rakko.",
+	"order": 5,
+	"enabled": true
+}

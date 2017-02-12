@@ -1,0 +1,8 @@
+{
+	"name": "Kagi",
+	"slug": "kagi",
+	"version": "1.0",
+	"description": "Authentication, Authorization and User Mangement Module.",
+	"order": 3,
+	"enabled": true
+}

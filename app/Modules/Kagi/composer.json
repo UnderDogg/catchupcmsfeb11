@@ -1,0 +1,19 @@
+{
+  "name": "rakko/kagi",
+  "description": "Authentication / Authorization Functionality for Rakko",
+  "keywords": [
+    "Authentication', 'Authorization",
+    "users",
+    "CMS",
+    "Rakko"
+  ],
+  "require": {
+    "laravel/framework": "^5.2",
+    "laravel/socialite": "^2.0"
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

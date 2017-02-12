@@ -104,3 +104,4 @@ storage/
 ehthumbs.db
 Thumbs.db
 /composer.lock
+/app/Modules/Kagi/.idea
