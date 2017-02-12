@@ -41,9 +41,9 @@ Route::get('/language/{lang}', 'LanguageController@language');
 | Admin
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
 
-	Route::pattern('id', '[0-9]+');
+    Route::pattern('id', '[0-9]+');
 
 // Resources
 // Controllers
