@@ -10,10 +10,6 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/underdogg/caffeinated-themes.git"
-    },
-    {
-      "type": "vcs",
       "url": "https://github.com/underdogg/caffeinated-plugins.git"
     },
     {
@@ -35,8 +31,8 @@
     "laravel/framework": "5.3.x-dev",
     "illuminate3/kotoba": "dev-master",
     "caffeinated/flash": "~3.0",
-    "caffeinated/plugins": "^2.0",
-    "caffeinated/themes": "^2.0",
+    "caffeinated/plugins": "dev-master",
+    "caffeinated/themes": "dev-master",
     "caffeinated/menus": "dev-master",
     "caffeinated/seo": "dev-master",
     "caffeinated/modules": "dev-master",
