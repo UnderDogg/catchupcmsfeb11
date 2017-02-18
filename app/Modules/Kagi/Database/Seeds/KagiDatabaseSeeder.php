@@ -19,12 +19,12 @@ class KagiDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-// 		$this->call('App\Modules\Kagi\Database\Seeds\ModuleLinksSeeder');
-// 		$this->call('App\Modules\Kagi\Database\Seeds\ModulePermissionsSeeder');
+ 		//$this->call('App\Modules\Kagi\Database\Seeds\ModuleLinksSeeder');
+ 		//$this->call('App\Modules\Kagi\Database\Seeds\ModulePermissionsSeeder');
 //
-// 		$this->call('App\Modules\Kagi\Database\Seeds\UsersTableSeeder'); // broken
-// 		$this->call('App\Modules\Kagi\Database\Seeds\UsersMainSeeder'); // admin only
-// 		$this->call('App\Modules\Kagi\Database\Seeds\UsersSeeder'); // csv
+ 		$this->call('App\Modules\Kagi\Database\Seeds\UsersTableSeeder'); // broken
+ 		$this->call('App\Modules\Kagi\Database\Seeds\UsersMainSeeder'); // admin only
+ 		$this->call('App\Modules\Kagi\Database\Seeds\UsersSeeder'); // csv
 
         //$this->call('App\Modules\Kagi\Database\Seeds\UsersExcel'); // csv
 

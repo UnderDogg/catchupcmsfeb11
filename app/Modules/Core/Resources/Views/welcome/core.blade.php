@@ -28,7 +28,7 @@
                 </a>
             </div>
             <div class="quote">
-                A basic collection of functions for Rakko
+                A basic collectionz of functions for Rakko
             </div>
         </div>
     </div>

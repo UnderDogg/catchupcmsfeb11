@@ -15,8 +15,10 @@ use Caffeinated\Shinobi\Traits\ShinobiTrait;
 use Laracasts\Presenter\PresentableTrait;
 
 // extends Authenticatable
+//implements AuthenticatableContract, CanResetPasswordContract
 
-abstract class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+
+class User extends Model
 {
 
     //use Authenticatable;
